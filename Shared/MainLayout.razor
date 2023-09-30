@@ -1,0 +1,105 @@
+﻿@inherits LayoutComponentBase
+
+
+<MudThemeProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+
+
+<div class="mobile_menu px-2 py-1 shadow-sm" style="background:#ffffff; min-width:375px">
+    <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column">
+            <div class="d-flex flex-row">
+                <div class="p-0 m-1"><img src="img/logo_64.png" alt="logo" /></div>
+                <div class="p-2 m-1"><img src="img/title.svg" /></div>
+            </div>
+        </div>
+        <div class="d-flex flex-column p-1">
+            <div class="d-flex flex-row">
+                <div class="p-3 m-1 rounded-circle btn btn-primary border-0" style="background: #8F5061"> <img src="img/search.svg" alt="search" /></div>
+                <div class="p-3 m-1 rounded-circle btn btn-secondary border-0" style="background: #FB7B9D"><img src="img/mobile_menu.svg" alt="menu" /></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Новости карусель -->
+<div class="slider">
+    <div class="slider_title">Новости</div>
+    <MudCarousel Class="slider_content" ShowArrows="@arrows" ShowBullets="@bullets" EnableSwipeGesture="@enableSwipeGesture" AutoCycle="@autocycle" TData="object">
+        <MudCarouselItem Transition="transition" Color="@Color.Primary" Class="data">
+            <div class="d-flex data" style="height:100%">
+                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+            </div>
+        </MudCarouselItem>
+        <MudCarouselItem Transition="transition" Color="@Color.Secondary" Class="data">
+            <div class="d-flex" style="height:100%">
+                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Size="@Size.Large" />
+            </div>
+        </MudCarouselItem>
+        <MudCarouselItem Transition="transition" Class="data">
+            <div class="d-flex" style="height:100%">
+                <MudIcon Class="mx-auto my-auto" Icon="@Icons.Custom.Brands.MudBlazor" Color="@Color.Primary" Size="@Size.Large" />
+            </div>
+        </MudCarouselItem>
+    </MudCarousel>
+</div>
+
+
+@Body
+
+<footer>
+    <div class="footer_img d-flex flex-row">
+        <div class="title text-center">Контакты</div>
+        <img src="img/footer.svg" alt="footer" class="shadow" />
+    </div>    
+</footer>
+
+
+
+<div class="back_triangle">
+    <img src="img/triangle.svg" />
+</div>
+<div class="back_triangle1">
+    <img src="img/triangle1.svg" />
+</div>
+
+@Error
+
+@inject IJSRuntime js
+
+@code {
+    private bool arrows = false;
+    private bool bullets = true;
+    private bool enableSwipeGesture = true;
+    private bool autocycle = true;
+    private Transition transition = Transition.Slide;
+
+    //object[] item1 { get; set; } = new object[5];
+
+    string Error{ get; set; }
+
+    //public class BoundingClientRect
+    //{
+    //    public double X { get; set; }
+    //    public double Y { get; set; }
+    //    public double Width { get; set; }
+    //    public double Height { get; set; }
+    //    public double Top { get; set; }
+    //    public double Right { get; set; }
+    //    public double Bottom { get; set; }
+    //    public double Left { get; set; }
+    //}
+
+
+    //private async Task OnElementClick(MouseEventArgs e)
+    //{
+    //    var result = await js.InvokeAsync<BoundingClientRect>("ClientRect",  item1);
+    //    var x = (int)(e.ClientX - result.Left);
+    //    var y = (int)(e.ClientY - result.Top);
+    //    // now you can work with the position relative to the element.
+    //    Error = $"{x} {x}";
+    //    StateHasChanged();
+    //}
+}
